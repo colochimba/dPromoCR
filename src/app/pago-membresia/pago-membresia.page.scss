@@ -1,0 +1,19 @@
+ion-content{
+  --background: url('../../assets/images/app-bg.jpg') no-repeat center center / cover;
+  --color: #fff;
+}
+
+ion-item {
+  --background: transparent !important;
+}
+
+ion-button {
+  --background: #fff;
+  --color:#DF4A60;
+}
+
+a, ion-input, .link, ion-label{
+  --color: #fff !important;
+  color: #fff !important;
+  text-decoration:  none;
+}

@@ -1,0 +1,60 @@
+<ion-content color="dark">
+  <h1 padding>Recomendaciones</h1>
+  <ion-slides pager="false" slidesPerView="1.5" spaceBetween="10">
+    <ion-slide *ngFor="let oferta of ofertas">
+      <a routerLink="/oferta-detalle">
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-img src="assets/images/promo-destaca01.jpg"></ion-img>
+          </ion-card-header>
+
+          <ion-card-content>
+            <h1>{{oferta.promoName}}</h1>
+            <h3>{{oferta.promoDescription}}</h3>
+          </ion-card-content>
+        </ion-card>
+      </a>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- Categories -->
+  <h2 padding>Categorias</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-card color="light" text-center>
+          <ion-icon size="large" name="restaurant"></ion-icon>
+          <ion-card-content>Comida</ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card color="light" text-center>
+          <ion-icon size="large" name="beer"></ion-icon>
+          <ion-card-content>Bebidas</ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card color="light" text-center>
+          <ion-icon size="large" name="bicycle"></ion-icon>
+          <ion-card-content>Diversion</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- List of Text Items -->
+  <h2 padding>Todas las promociones</h2>
+  <ion-list>
+    <ion-item class="item ios in-list ion-focusable item-label hydrated" *ngFor="let oferta of ofertas">
+      <ion-avatar slot="start" class="ios hydrated">
+        <ion-img [src]='oferta.promoPhotoURL'></ion-img>
+      </ion-avatar>
+      <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+        <h2>{{oferta.promoBusiness}}</h2>
+        <h3>{{oferta.promoName}}</h3>
+        <p>{{oferta.promoDescription}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

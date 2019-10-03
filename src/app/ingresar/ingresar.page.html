@@ -1,0 +1,27 @@
+<ion-content center padding class="bg-image" fullscreen="true">
+
+  <ion-img src="assets/images/logo-dpromocr.png"></ion-img>
+  <div text-center>
+    <h2>Ingresar</h2>
+    <h4>Bienvenido de nuevo, por favor ingrese para continuar</h4>
+  </div>
+
+  <ion-item>
+
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="email" type="email" name="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+
+    <ion-label position="floating">Password</ion-label>
+    <ion-input [(ngModel)]="password" type="password" name="password"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="OnSubmitLogin()" expand="block" class="ion-margin-top" padding>Ingresar</ion-button>
+
+</ion-content>
+
+<ion-footer padding text-center>
+  <a class="link" routerLink="/registro">Registrar una nueva cuenta nueva</a>
+</ion-footer>

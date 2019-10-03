@@ -1,0 +1,36 @@
+a{
+  text-decoration: none;
+
+}
+
+ion-card-header {
+padding: 0
+}
+
+ion-card-content {
+  padding-top: 10px
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets{
+  bottom: 40px
+}
+
+ion-slides {
+  ion-card{
+    padding: 0;
+    margin: 10px 5px;
+  }
+}
+
+ion-card{
+  padding: 10px
+}
+
+ion-col  ion-card{
+  margin: 0
+
+
+}
+ion-icon{
+  color: #a51838
+}

@@ -1,0 +1,34 @@
+[
+        {
+        "promoName": "promo normal 1",
+        "promoID": 1,
+        "promoBusiness": "Restaurante Alito",
+        "promoPhotoURL": "https://via.placeholder.com/150/c96cad",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+      },
+
+      {
+        "promoName": "promo normal 2",
+        "promoID": 2,
+        "promoBusiness": "Pizzeria Alito",
+        "promoPhotoURL": "https://via.placeholder.com/150/d32776",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+      },
+
+      {
+        "promoName": "promo normal 3",
+        "promoID": 3,
+        "promoBusiness": "Pizzeria Alito",
+        "promoPhotoURL": "https://via.placeholder.com/150/d32776",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+      },
+
+      {
+        "promoName": "promo normal 4",
+        "promoID": 4,
+        "promoBusiness": "Pizzeria Alito",
+        "promoPhotoURL": "https://via.placeholder.com/150/d32776",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+      }
+
+]
