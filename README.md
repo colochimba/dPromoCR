@@ -25,6 +25,10 @@ Ingresar
 -created new test user testiuser@test.com test123
 -ingresar.page.ts -> OnSubmitLogin -> navigate (change to '')
 
+##
+Noticias
+##
+ionic generate page noticias
 
 ##
 Tab2Page
