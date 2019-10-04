@@ -24,3 +24,27 @@ Ingresar
 -authentication method gives error Post on Chrome not on Firefox
 -created new test user testiuser@test.com test123
 -ingresar.page.ts -> OnSubmitLogin -> navigate (change to '')
+
+
+##
+Tab2Page
+##
+Dinamically creates de news from de json and opens the modal when clicked.
+*ngFor="let noticia of noticias"
+ion-card (click)="presentModal(noticia)"
+img [src]="noticia.promoPhotoURL"
+subtitle>{{noticia.promoBusiness}}
+title>{{noticia.promoName}}
+
+async presentModal(noticia) {
+    const modal = await this.modalController.create({
+      component: NoticiaPage,
+      componentProps: {
+        'promoName': noticia.promoName,
+        'promoBusiness': noticia.promoBusiness,
+        'promoPhotoURL': noticia.promoPhotoURL,
+        'promoDescription': noticia.promoDescription
+      }
+    });
+    return await modal.present();
+  }
