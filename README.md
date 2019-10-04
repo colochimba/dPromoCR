@@ -76,3 +76,9 @@ index.json
             "featuredPhotoURL": "https://via.placeholder.com/150/c96cad",
             "featuredDescription": "Aqui una leve descripcion de que se trata la promocion"
             },...],...}
+            
+
+##
+RegistroPage
+##
+auth.service => createUserWithEmailAndPassword
