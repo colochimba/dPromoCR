@@ -1,0 +1,33 @@
+[{
+        "promoName": "Noticia 1",
+        "promoID": 1,
+        "promoBusiness": "Restaurante Alito",
+        "promoPhotoURL": "https://source.unsplash.com/random/?shops1",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+    },
+
+    {
+        "promoName": "Noticia 2",
+        "promoID": 2,
+        "promoBusiness": "Pizzeria Alito",
+        "promoPhotoURL": "https://source.unsplash.com/random/?shops2",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+    },
+
+    {
+        "promoName": "Noticia 3",
+        "promoID": 3,
+        "promoBusiness": "Pizzeria Alito",
+        "promoPhotoURL": "https://source.unsplash.com/random/?shops3",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+    },
+
+    {
+        "promoName": "Noticia 4",
+        "promoID": 4,
+        "promoBusiness": "Pizzeria Alito",
+        "promoPhotoURL": "https://source.unsplash.com/random/?shops4",
+        "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+    }
+
+]
