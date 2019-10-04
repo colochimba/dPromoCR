@@ -52,3 +52,27 @@ async presentModal(noticia) {
     });
     return await modal.present();
   }
+  
+  
+##
+JSON file
+##
+index.json
+{"promotions":[{"promoName": "Promocion 1",
+                "promoID": 1,
+                "promoBusiness": "Tienda Alito",
+                "promoPhotoURL": "https://via.placeholder.com/150/c96cad",
+                "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+                },...],
+"news":[{"newsName": "Noticia 1",
+        "newsID": 1,
+        "newsBusiness": "Tienda Alito",
+        "newsPhotoURL": "https://source.unsplash.com/random/?shops1",
+        "newsDescription": "Aqui una leve descripcion de que se trata la promocion"
+        },...],
+"featured":[{"featuredName": "Destacado 1",
+            "featuredID": 1,
+            "featuredBusiness": "Tienda Alito",
+            "featuredPhotoURL": "https://via.placeholder.com/150/c96cad",
+            "featuredDescription": "Aqui una leve descripcion de que se trata la promocion"
+            },...],...}
