@@ -35,6 +35,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'noticia',
+        children: [
+          {
+            path:'',
+            loadChildren:'../noticia/noticia.module#NoticiaPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

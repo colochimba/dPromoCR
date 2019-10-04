@@ -19,4 +19,31 @@ export class AuthService {
     });
 
   }
+
+  register(email:string, password:string){
+    return new Promise((resolve, rejected) =>{
+      this.AFauth.auth.createUserWithEmailAndPassword(email, password).then(user =>{
+        resolve(user);
+      }).catch(err => rejected(err));
+    });
+
+  }
+
+  logoutUser(){
+    return new Promise((resolve, reject) => {
+      if(this.AFauth.auth.currentUser){
+        this.AFauth.auth.signOut()
+        .then(() => {
+          console.log("LOG Out");
+          resolve();
+        }).catch((error) => {
+          reject();
+        });
+      }
+    })
+  }
+ 
+  userDetails(){
+    return this.AFauth.auth.currentUser;
+  }
 }
