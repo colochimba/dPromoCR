@@ -82,3 +82,8 @@ index.json
 RegistroPage
 ##
 auth.service => createUserWithEmailAndPassword
+
+##
+OfertaDetalle
+##
+Added a new service NavService where I store the navParams to pass the promo details from Tab1 to OfertaDetalle
