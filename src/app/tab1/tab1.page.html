@@ -46,14 +46,16 @@
     <h2 padding>Todas las promociones</h2>
     <ion-list>
         <ion-item class="item ios in-list ion-focusable item-label hydrated" *ngFor="let oferta of ofertas">
-            <ion-avatar slot="start" class="ios hydrated">
-                <ion-img [src]='oferta.promoPhotoURL'></ion-img>
-            </ion-avatar>
-            <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
-                <h2>{{oferta.promoBusiness}}</h2>
-                <h3>{{oferta.promoName}}</h3>
-                <p>{{oferta.promoDescription}}</p>
-            </ion-label>
+            <a (click)="presentOferta(oferta)" routerLink="/oferta-detalle">
+                <ion-avatar slot="start" class="ios hydrated">
+                    <ion-img [src]='oferta.promoPhotoURL'></ion-img>
+                </ion-avatar>
+                <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+                    <h2>{{oferta.promoBusiness}}</h2>
+                    <h3>{{oferta.promoName}}</h3>
+                    <p>{{oferta.promoDescription}}</p>
+                </ion-label>
+            </a>
         </ion-item>
 
     </ion-list>

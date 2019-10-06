@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OfertasProviderService } from '../ofertas-provider.service';
+import { NavService } from '../servicios/nav.service';
 
 import * as jsondata from '../../json/index.json'; 
 
@@ -11,17 +12,16 @@ import * as jsondata from '../../json/index.json';
 export class Tab1Page {
 
   ofertas
-
-  constructor(private proveedor:OfertasProviderService) {}
+  constructor(private navParams: NavService, private proveedor:OfertasProviderService) {}
 
   ngOnInit(){
-    this.proveedor.obtenerDatos()
+    /*this.proveedor.obtenerDatos()
     .subscribe(
       (data)=> {this.ofertas = (data as any).promotions;},
       (error) => {console.log(error);}
-    )
+    )*/
   
- //this.ofertas = (jsondata as any).default.promotions; //para trabajar con el json local
+ this.ofertas = (jsondata as any).default.promotions; //para trabajar con el json local
  /*//para evitar el CORS error y enviar mediante un proxy
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = "https://www.dpromocr.com/json/promos.json"; // site that doesn’t send Access-Control-*
@@ -30,4 +30,10 @@ fetch(proxyurl + url)
 .then(data => {this.ofertas = JSON.parse(data);})
 .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?")) 
     */}
+
+    presentOferta(oferta){
+      this.navParams.myParam = oferta;
+    }
+
+    
 }

@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-
+import { NavService } from '../servicios/nav.service';
 
 @Component({
   selector: 'app-oferta-detalle',
   templateUrl: './oferta-detalle.page.html',
-  styleUrls: ['./oferta-detalle.page.scss'],
+  styleUrls: ['./oferta-detalle.page.scss']
 })
 export class OfertaDetallePage implements OnInit {
+
+  ofertaDetalle
 
   slideOpts = {
     slidesPerView: 1.1,
     freeMode: true
   };
 
-  constructor(public alertController: AlertController) { }
+  constructor(private navParams: NavService, public alertController: AlertController) {}
 
   ngOnInit() {
+    this.ofertaDetalle = this.navParams.myParam;
   }
 
   async presentAlertConfirm() {

@@ -1,5 +1,7 @@
 # dPromoCR
 
+
+
 ##
 CORS issue
 ##
@@ -23,7 +25,7 @@ Ingresar
 ##
 -authentication method gives error Post on Chrome not on Firefox
 -created new test user testiuser@test.com test123
--ingresar.page.ts -> OnSubmitLogin -> navigate (change to '')
+-ingresar.page.ts -> OnSubmitLogin -> navigate ''
 
 ##
 Noticias
@@ -52,8 +54,7 @@ async presentModal(noticia) {
     });
     return await modal.present();
   }
-  
-  
+
 ##
 JSON file
 ##
@@ -70,13 +71,13 @@ index.json
         "newsPhotoURL": "https://source.unsplash.com/random/?shops1",
         "newsDescription": "Aqui una leve descripcion de que se trata la promocion"
         },...],
-"featured":[{"featuredName": "Destacado 1",
+"featured":[{"featuredName": "Promocion 1",
             "featuredID": 1,
             "featuredBusiness": "Tienda Alito",
             "featuredPhotoURL": "https://via.placeholder.com/150/c96cad",
             "featuredDescription": "Aqui una leve descripcion de que se trata la promocion"
             },...],...}
-            
+
 
 ##
 RegistroPage

@@ -3,7 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { NoticiaPage } from '../noticia/noticia.page';
 
 import { OfertasProviderService } from '../ofertas-provider.service';
-//import * as jsondata from '../../json/index.json'; 
+import * as jsondata from '../../json/index.json'; 
 
 
 @Component({
@@ -20,13 +20,13 @@ export class Tab2Page {
   }
 
   ngOnInit(){
-     this.proveedor.obtenerDatos()
+     /*this.proveedor.obtenerDatos()
     .subscribe(
       (data)=> {this.noticias = (data as any).news;},
       (error) => {console.log(error);}
-    )
+    )*/
   
-    //this.noticias = (jsondata as any).default.news; //para acceder al json local
+    this.noticias = (jsondata as any).default.news; //para acceder al json local
   }
   
   async presentModal(noticia) {
