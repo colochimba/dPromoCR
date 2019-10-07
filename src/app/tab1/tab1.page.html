@@ -1,11 +1,11 @@
 <ion-content color="dark">
     <h1 padding>Recomendaciones</h1>
     <ion-slides pager="false" slidesPerView="1.5" spaceBetween="10">
-        <ion-slide *ngFor="let oferta of ofertas">
+        <ion-slide *ngFor="let oferta of destacadas">
             <a routerLink="/oferta-detalle">
                 <ion-card color="light">
                     <ion-card-header>
-                        <ion-img src="assets/images/promo-destaca01.jpg"></ion-img>
+                        <ion-img [src]="oferta.promoPhotoURL"></ion-img>
                     </ion-card-header>
 
                     <ion-card-content>
@@ -21,24 +21,16 @@
     <h2 padding>Categorias</h2>
     <ion-grid>
         <ion-row>
-            <ion-col size="4">
-                <ion-card color="light" text-center>
-                    <ion-icon size="large" name="restaurant"></ion-icon>
-                    <ion-card-content>Comida</ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="4">
-                <ion-card color="light" text-center>
-                    <ion-icon size="large" name="beer"></ion-icon>
-                    <ion-card-content>Bebidas</ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="4">
-                <ion-card color="light" text-center>
-                    <ion-icon size="large" name="bicycle"></ion-icon>
-                    <ion-card-content>Diversion</ion-card-content>
-                </ion-card>
-            </ion-col>
+            <ion-segment scrollable>
+                <ion-col size="4" *ngFor="let categoria of categorias">
+
+                    <ion-card color="light" text-center>
+                        <ion-icon size="large" name={{categoria.categoryIcon}}></ion-icon>
+                        <ion-card-content>{{categoria.categoryName}}</ion-card-content>
+                    </ion-card>
+
+                </ion-col>
+            </ion-segment>
         </ion-row>
     </ion-grid>
 

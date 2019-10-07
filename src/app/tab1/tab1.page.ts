@@ -12,6 +12,8 @@ import * as jsondata from '../../json/index.json';
 export class Tab1Page {
 
   ofertas
+  categorias
+  destacadas
   constructor(private navParams: NavService, private proveedor:OfertasProviderService) {}
 
   ngOnInit(){
@@ -20,7 +22,8 @@ export class Tab1Page {
       (data)=> {this.ofertas = (data as any).promotions;},
       (error) => {console.log(error);}
     )*/
-  
+    this.destacadas = (jsondata as any).default.featured;
+  this.categorias = (jsondata as any).default.categories;
  this.ofertas = (jsondata as any).default.promotions; //para trabajar con el json local
  /*//para evitar el CORS error y enviar mediante un proxy
     const proxyurl = "https://cors-anywhere.herokuapp.com/";

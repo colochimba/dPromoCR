@@ -36,46 +36,87 @@
             "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
         }
     ],
+    "featured": [{
+            "promoName": "Destacada 1",
+            "promoID": 1,
+            "promoBusiness": "Tienda Alito",
+            "promoPhotoURL": "https://source.unsplash.com/random/?food1",
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion",
+            "promoPlace": "Cartago Centro",
+            "promoDate": "01/12/2019",
+            "promoTel": "5555-5555",
+            "promoWeb": "www.alito.com",
+            "promoCategory": "Restaurante"
+        },
+
+        {
+            "promoName": "Destacada 2",
+            "promoID": 2,
+            "promoBusiness": "Tienda Alito",
+            "promoPhotoURL": "https://source.unsplash.com/random/?food2",
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+        },
+
+        {
+            "promoName": "Destacada 3",
+            "promoID": 3,
+            "promoBusiness": "Tienda Alito",
+            "promoPhotoURL": "https://source.unsplash.com/random/?food3",
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+        },
+
+        {
+            "promoName": "Destacada 4",
+            "promoID": 4,
+            "promoBusiness": "Tienda Alito",
+            "promoPhotoURL": "https://source.unsplash.com/random/?food4",
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+        }
+    ],
     "news": [{
             "promoName": "Noticia 1",
             "promoID": 1,
             "promoBusiness": "Tienda Alito",
-            "promoPhotoURL": "https://source.unsplash.com/random/?shops1",
+            "promoPhotoURL": "https://source.unsplash.com/random/?news1",
             "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
         },
         {
             "promoName": "Noticia 2",
             "promoID": 1,
             "promoBusiness": "Tienda Alito",
-            "promoPhotoURL": "https://source.unsplash.com/random/?shops1",
+            "promoPhotoURL": "https://source.unsplash.com/random/?news2",
             "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
         },
         {
             "promoName": "Noticia 3",
             "promoID": 1,
             "promoBusiness": "Tienda Alito",
-            "promoPhotoURL": "https://source.unsplash.com/random/?shops1",
+            "promoPhotoURL": "https://source.unsplash.com/random/?news3",
             "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
         },
         {
             "promoName": "Noticia 4",
             "promoID": 1,
             "promoBusiness": "Tienda Alito",
-            "promoPhotoURL": "https://source.unsplash.com/random/?shops1",
+            "promoPhotoURL": "https://source.unsplash.com/random/?news4",
             "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
         }
     ],
     "categories": [{
-            "categoryName": "Restaurante"
+            "categoryName": "Comida",
+            "categoryIcon": "restaurant"
         },
         {
-            "categoryName": "Tienda"
+            "categoryName": "Tienda",
+            "categoryIcon": "shirt"
         },
         {
-            "categoryName": "Diversión"
+            "categoryName": "Diversión",
+            "categoryIcon": "bicycle"
         },
         {
-            "categoryName": "Salud"
+            "categoryName": "Salud",
+            "categoryIcon": "medkit"
         }
     ]
 
