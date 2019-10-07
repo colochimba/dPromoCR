@@ -10,6 +10,7 @@ import { NavService } from '../servicios/nav.service';
 export class OfertaDetallePage implements OnInit {
 
   ofertaDetalle
+  recomendaciones
 
   slideOpts = {
     slidesPerView: 1.1,
@@ -19,7 +20,8 @@ export class OfertaDetallePage implements OnInit {
   constructor(private navParams: NavService, public alertController: AlertController) {}
 
   ngOnInit() {
-    this.ofertaDetalle = this.navParams.myParam;
+    this.ofertaDetalle = this.navParams.myParam.oferta;
+    this.recomendaciones = this.navParams.myParam.recomendaciones;
   }
 
   async presentAlertConfirm() {

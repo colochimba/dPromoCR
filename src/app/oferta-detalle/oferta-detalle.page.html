@@ -12,13 +12,11 @@
 <ion-content class="" color="dark">
     <ion-slides pager="true" [options]="slideOpts">
         <ion-slide>
-            <a routerLink="/detalle-oferta">
-                <ion-card color="light">
-                    <ion-card-header>
-                        <ion-img [src]="ofertaDetalle.promoPhotoURL"></ion-img>
-                    </ion-card-header>
-                </ion-card>
-            </a>
+            <ion-card color="light">
+                <ion-card-header>
+                    <ion-img [src]="ofertaDetalle.promoPhotoURL"></ion-img>
+                </ion-card-header>
+            </ion-card>
         </ion-slide>
 
         <ion-slide>
@@ -68,12 +66,12 @@
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <strong>lugar: </strong> <br>
-                    <strong>Vence: </strong>
+                    <strong>Lugar: {{ofertaDetalle.promoPlace}}</strong> <br>
+                    <strong>Vence: {{ofertaDetalle.promoDate}}</strong>
                 </ion-col>
                 <ion-col>
-                    <strong>Tel: </strong><br>
-                    <strong>Web: </strong>
+                    <strong>Tel: {{ofertaDetalle.promoTel}}</strong><br>
+                    <strong>Web: {{ofertaDetalle.promoWeb}}</strong>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -83,23 +81,14 @@
 
     <!-- List of Text Items -->
     <ion-list>
-        <ion-item class="item ios in-list ion-focusable item-label hydrated">
+        <ion-item class="item ios in-list ion-focusable item-label hydrated" *ngFor="let oferta of recomendaciones">
             <ion-avatar slot="start" class="ios hydrated">
-                <img src="assets/images/barber-icon.png">
+                <img [src]="oferta.promoPhotoURL">
             </ion-avatar>
             <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
-                <h2>Finn</h2>
-                <h3>I'm a big deal</h3>
-                <p>Listen, I've had a pretty messed up day...</p>
-            </ion-label>
-        </ion-item>
-        <ion-item class="item ios in-list ion-focusable item-label hydrated">
-            <ion-avatar slot="start" class="ios hydrated">
-                <img src="assets/images/dona-icon.png">
-            </ion-avatar>
-            <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
-                <h2>50% Descuento en corte de cabello</h2>
-                <p>Listen, I've had a pretty messed up day...</p>
+                <h2>{{oferta.promoBusiness}}</h2>
+                <h3>{{oferta.promoName}}</h3>
+                <p>{{oferta.promoDescription}}</p>
             </ion-label>
         </ion-item>
     </ion-list>

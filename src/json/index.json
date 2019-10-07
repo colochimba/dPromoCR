@@ -9,7 +9,7 @@
             "promoDate": "01/12/2019",
             "promoTel": "5555-5555",
             "promoWeb": "www.alito.com",
-            "promoCategory": "Restaurante"
+            "promoCategory": "Comida"
         },
 
         {
@@ -17,7 +17,12 @@
             "promoID": 2,
             "promoBusiness": "Tienda Alito",
             "promoPhotoURL": "https://source.unsplash.com/random/?food2",
-            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion",
+            "promoPlace": "Cartago Centro",
+            "promoDate": "01/12/2019",
+            "promoTel": "5555-5555",
+            "promoWeb": "www.alito.com",
+            "promoCategory": "Comida"
         },
 
         {
@@ -25,7 +30,12 @@
             "promoID": 3,
             "promoBusiness": "Tienda Alito",
             "promoPhotoURL": "https://source.unsplash.com/random/?food3",
-            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion",
+            "promoPlace": "Cartago Centro",
+            "promoDate": "01/12/2019",
+            "promoTel": "5555-5555",
+            "promoWeb": "www.alito.com",
+            "promoCategory": "Tienda"
         },
 
         {
@@ -33,7 +43,12 @@
             "promoID": 4,
             "promoBusiness": "Tienda Alito",
             "promoPhotoURL": "https://source.unsplash.com/random/?food4",
-            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion",
+            "promoPlace": "Cartago Centro",
+            "promoDate": "01/12/2019",
+            "promoTel": "5555-5555",
+            "promoWeb": "www.alito.com",
+            "promoCategory": "Tienda"
         }
     ],
     "featured": [{
@@ -46,7 +61,7 @@
             "promoDate": "01/12/2019",
             "promoTel": "5555-5555",
             "promoWeb": "www.alito.com",
-            "promoCategory": "Restaurante"
+            "promoCategory": "Comida"
         },
 
         {
@@ -54,7 +69,12 @@
             "promoID": 2,
             "promoBusiness": "Tienda Alito",
             "promoPhotoURL": "https://source.unsplash.com/random/?food2",
-            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion",
+            "promoPlace": "Cartago Centro",
+            "promoDate": "01/12/2019",
+            "promoTel": "5555-5555",
+            "promoWeb": "www.alito.com",
+            "promoCategory": "Comida"
         },
 
         {
@@ -62,7 +82,12 @@
             "promoID": 3,
             "promoBusiness": "Tienda Alito",
             "promoPhotoURL": "https://source.unsplash.com/random/?food3",
-            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion",
+            "promoPlace": "Cartago Centro",
+            "promoDate": "01/12/2019",
+            "promoTel": "5555-5555",
+            "promoWeb": "www.alito.com",
+            "promoCategory": "Tienda"
         },
 
         {
@@ -70,7 +95,12 @@
             "promoID": 4,
             "promoBusiness": "Tienda Alito",
             "promoPhotoURL": "https://source.unsplash.com/random/?food4",
-            "promoDescription": "Aqui una leve descripcion de que se trata la promocion"
+            "promoDescription": "Aqui una leve descripcion de que se trata la promocion",
+            "promoPlace": "Cartago Centro",
+            "promoDate": "01/12/2019",
+            "promoTel": "5555-5555",
+            "promoWeb": "www.alito.com",
+            "promoCategory": "Tienda"
         }
     ],
     "news": [{
@@ -103,6 +133,9 @@
         }
     ],
     "categories": [{
+            "categoryName": "Todos",
+            "categoryIcon": "refresh"
+        }, {
             "categoryName": "Comida",
             "categoryIcon": "restaurant"
         },

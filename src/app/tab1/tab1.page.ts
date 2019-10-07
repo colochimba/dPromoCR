@@ -14,6 +14,7 @@ export class Tab1Page {
   ofertas
   categorias
   destacadas
+  categoriaActual
   constructor(private navParams: NavService, private proveedor:OfertasProviderService) {}
 
   ngOnInit(){
@@ -22,6 +23,7 @@ export class Tab1Page {
       (data)=> {this.ofertas = (data as any).promotions;},
       (error) => {console.log(error);}
     )*/
+    this.categoriaActual = ""
     this.destacadas = (jsondata as any).default.featured;
   this.categorias = (jsondata as any).default.categories;
  this.ofertas = (jsondata as any).default.promotions; //para trabajar con el json local
@@ -34,9 +36,20 @@ fetch(proxyurl + url)
 .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?")) 
     */}
 
-    presentOferta(oferta){
-      this.navParams.myParam = oferta;
+    presentOferta(ofertaActual){
+      let categoria = ofertaActual.promoCategory;
+
+      this.navParams.myParam = {"oferta": ofertaActual, "recomendaciones": this.destacadas.filter(oferta => oferta.promoCategory === categoria && oferta.promoID != ofertaActual.promoID)};
     }
 
+    actualizarListaPromos(categoria){
+      this.ofertas = (jsondata as any).default.promotions;
+      if(categoria != "Todos"){
+        this.ofertas = this.ofertas.filter(oferta => oferta.promoCategory === categoria);
+        this.categoriaActual = " de "+categoria;
+      }else{
+        this.categoriaActual = "";
+      }
+    }
     
 }
