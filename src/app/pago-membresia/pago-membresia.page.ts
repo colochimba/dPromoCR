@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../servicios/auth.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-pago-membresia',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagoMembresiaPage implements OnInit {
 
-  constructor() { }
+  currentUser
+  constructor(private authService: AuthService) { 
+    
+  }
 
   ngOnInit() {
+    this.currentUser = this.authService.currentUser;
   }
 
 }

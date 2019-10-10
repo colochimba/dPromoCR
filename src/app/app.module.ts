@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { firebaseConfig } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 import {NoticiaPage} from './noticia/noticia.page';
 
@@ -26,7 +27,8 @@ import {NoticiaPage} from './noticia/noticia.page';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    OfertasProviderService
+    OfertasProviderService,
+    AngularFireDatabase
   ],
   bootstrap: [AppComponent]
 })
