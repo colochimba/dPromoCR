@@ -88,3 +88,16 @@ auth.service => createUserWithEmailAndPassword
 OfertaDetalle
 ##
 Added a new service NavService where I store the navParams to pass the promo details from Tab1 to OfertaDetalle
+
+##
+DB
+##
+Created User class in models. Object to be stored in the DB
+
+
+##
+Correos electrónicos
+##
+Las plantillas para los correos deben ser configuradas en Firebase->Autenticación->Plantillas
+
+##
