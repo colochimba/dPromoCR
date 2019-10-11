@@ -1,8 +1,7 @@
 export class User {
-    $key: string;
     email: string = "";
-    name: string = "";
-    lastname: string = "";
+    name: string = "Usuario";
+    lastname: string = "Nuevo";
     gender: string = "";
     birthdate: string = "";
     idnumber: string = "";

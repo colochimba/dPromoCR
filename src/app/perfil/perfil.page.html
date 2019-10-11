@@ -1,0 +1,56 @@
+<ion-content center padding class="bg-image" fullscreen="true">
+
+    <ion-img src="assets/images/logo-dpromocr.png"></ion-img>
+    <div text-center>
+        <h2>Mi Perfil</h2>
+    </div>
+
+    <ion-item>
+
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="currentUser.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input type="text" [(ngModel)]="currentUser.lastname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+
+        <ion-label>Gender</ion-label>
+        <ion-select [(ngModel)]="currentUser.gender" interface="popover">
+            <ion-select-option value="femenino">Femenino</ion-select-option>
+            <ion-select-option value="masculino">Masculino</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+
+        <ion-label position="floating">Fecha de nacimiento</ion-label>
+        <ion-datetime [(ngModel)]="currentUser.birthdate" displayFormat="DD MMM YY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Tipo de Identificación</ion-label>
+        <ion-select [(ngModel)]="currentUser.idtype" interface="popover">
+            <ion-select-option value="cedula">Cédula</ion-select-option>
+            <ion-select-option value="pasaporte">Pasaporte</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Número de identificación</ion-label>
+        <ion-input type="text" [(ngModel)]="currentUser.idnumber"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Usuario de paypal</ion-label>
+        <ion-input type="text" [(ngModel)]="currentUser.paypalid"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" class="ion-margin-top" padding (click)="updateUser()">Actualizar</ion-button>
+    <ion-button expand="block" class="ion-margin-top" padding routerLink="/">Regresar</ion-button>
+
+</ion-content>

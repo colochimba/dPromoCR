@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../servicios/auth.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  currentUser
+  constructor(private authservice: AuthService) {}
+
+  ngOnInit(){
+    this.currentUser = this.authservice.currentUser;
+  }
 
 }

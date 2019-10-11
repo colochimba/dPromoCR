@@ -15,10 +15,10 @@
 
     </ion-list-header>
 
-    <div text-wrap text-center class="username">Carlos Perez</div>
+    <div text-wrap text-center class="username">{{currentUser.name}} {{currentUser.lastname}}</div>
 
     <ion-list lines="none">
-        <ion-item detail color="dark" routerLink="/pago-membresia">
+        <ion-item detail color="dark" routerLink="/perfil">
             <ion-icon slot="start" color="medium" name="person"></ion-icon>
             <ion-label>Mi Perfil</ion-label>
         </ion-item>

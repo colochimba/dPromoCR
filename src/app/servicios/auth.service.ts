@@ -22,7 +22,6 @@ export class AuthService {
     return new Promise((resolve, rejected) =>{
       this.AFauth.auth.signInWithEmailAndPassword(email, password)
       .then(user =>{
-        //this.getUser();
         this.Afirebase.database.ref(`user/${this.AFauth.auth.currentUser.uid}`).once('value')
           .then(snapshot => {// read the User from DB
             this.currentUser =  snapshot.val();
@@ -57,5 +56,20 @@ export class AuthService {
         });
       }
     })
+  }
+
+  updateUser(){
+    console.log(this.currentUser);
+    return new Promise((resolve, reject) => {
+      this.Afirebase.database.ref('user/'+this.AFauth.auth.currentUser.uid).set(this.currentUser,error=>{
+        if (error) {
+          console.log("error1");
+          reject();
+        } else {
+          console.log("updated1");
+          resolve();
+        }
+      })
+    });
   }
 }
