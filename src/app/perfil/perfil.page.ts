@@ -15,9 +15,9 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
     this.currentUser = this.authservice.currentUser;
   }
-
+  //before this method we should validate the fields needed.
   async updateUser(){
-    this.authservice.updateUser();
+    this.authservice.updateUserInDB();
     const toast = await this.toastController.create({
       color: 'dark',
       message: 'Información de perfil actualizada.',
