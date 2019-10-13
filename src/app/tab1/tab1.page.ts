@@ -27,6 +27,8 @@ export class Tab1Page {
     this.destacadas = (jsondata as any).default.featured;
   this.categorias = (jsondata as any).default.categories;
  this.ofertas = (jsondata as any).default.promotions; //para trabajar con el json local
+
+ this.navParams.destacadas = this.destacadas;
  /*//para evitar el CORS error y enviar mediante un proxy
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = "https://www.dpromocr.com/json/promos.json"; // site that doesn’t send Access-Control-*
@@ -38,7 +40,7 @@ fetch(proxyurl + url)
 
     presentOferta(ofertaActual){
       let categoria = ofertaActual.promoCategory;
-
+  
       this.navParams.myParam = {"oferta": ofertaActual, "recomendaciones": this.destacadas.filter(oferta => oferta.promoCategory === categoria && oferta.promoID != ofertaActual.promoID)};
     }
 

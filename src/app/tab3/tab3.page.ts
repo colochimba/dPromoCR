@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
 })
 export class Tab3Page {
 
-  currentUser
-  constructor(private authservice: AuthService, public router: Router) {}
+  
+  constructor(public authservice: AuthService, public router: Router) {}
 
   ngOnInit(){
-    this.currentUser = this.authservice.currentUser;
   }
 
   logout(){

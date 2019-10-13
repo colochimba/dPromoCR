@@ -9,13 +9,16 @@ import { User } from '../models/user';
 })
 export class PagoMembresiaPage implements OnInit {
 
-  currentUser
+  
   constructor(private authService: AuthService) { 
     
   }
 
   ngOnInit() {
-    this.currentUser = this.authService.currentUser;
+  }
+
+  makePayment(){
+    this.authService.currentUser.active = true; //this has to be saved to the DB when the payment is successfull
   }
 
 }

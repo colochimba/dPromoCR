@@ -9,11 +9,10 @@ import { AuthService } from '../servicios/auth.service';
 })
 export class PerfilPage implements OnInit {
 
-  currentUser
-  constructor(private authservice: AuthService, public toastController: ToastController) { }
+  
+  constructor(public authservice: AuthService, public toastController: ToastController) { }
 
   ngOnInit() {
-    this.currentUser = this.authservice.currentUser;
   }
   //before this method we should validate the fields needed.
   async updateUser(){

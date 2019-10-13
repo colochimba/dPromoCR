@@ -7,4 +7,5 @@ export class User {
     idnumber: string = "";
     idtype: string = "";
     paypalid: string = "";
+    active: boolean = false;
 }

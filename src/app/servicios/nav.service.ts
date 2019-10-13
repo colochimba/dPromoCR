@@ -6,5 +6,7 @@ import { Injectable } from '@angular/core';
 export class NavService {
   myParam: any;
 
+  destacadas
+
   constructor() { }
 }

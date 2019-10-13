@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { NavService } from '../servicios/nav.service';
+import { AuthService } from '../servicios/auth.service';
+
 
 @Component({
   selector: 'app-oferta-detalle',
@@ -11,13 +13,14 @@ export class OfertaDetallePage implements OnInit {
 
   ofertaDetalle
   recomendaciones
+  
 
   slideOpts = {
     slidesPerView: 1.1,
     freeMode: true
   };
 
-  constructor(private navParams: NavService, public alertController: AlertController) {}
+  constructor(public navParams: NavService, public authService: AuthService, public alertController: AlertController) {}
 
   ngOnInit() {
     this.ofertaDetalle = this.navParams.myParam.oferta;
@@ -48,4 +51,10 @@ export class OfertaDetallePage implements OnInit {
     await alert.present();
   }
 
+  presentOferta(ofertaActual){
+    let categoria = ofertaActual.promoCategory;
+
+    this.ofertaDetalle = ofertaActual;
+    this.recomendaciones =  this.navParams.destacadas.filter(oferta => oferta.promoCategory === categoria && oferta.promoID != ofertaActual.promoID);
+  }
 }

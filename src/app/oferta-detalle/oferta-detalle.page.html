@@ -76,20 +76,22 @@
             </ion-row>
         </ion-grid>
 
-        <ion-button color="medium" expand="full" (click)='presentAlertConfirm()'>Canjear Cupón</ion-button>
+        <ion-button [color]="this.authService.currentUser.active? 'primary' : 'medium'" expand="full" (click)='presentAlertConfirm()'>Canjear Cupón</ion-button>
     </ion-card>
 
     <!-- List of Text Items -->
     <ion-list>
         <ion-item class="item ios in-list ion-focusable item-label hydrated" *ngFor="let oferta of recomendaciones">
-            <ion-avatar slot="start" class="ios hydrated">
-                <img [src]="oferta.promoPhotoURL">
-            </ion-avatar>
-            <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
-                <h2>{{oferta.promoBusiness}}</h2>
-                <h3>{{oferta.promoName}}</h3>
-                <p>{{oferta.promoDescription}}</p>
-            </ion-label>
+            <a (click)="presentOferta(oferta)" routerLink="/oferta-detalle">
+                <ion-avatar slot="start" class="ios hydrated">
+                    <img [src]="oferta.promoPhotoURL">
+                </ion-avatar>
+                <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+                    <h2>{{oferta.promoBusiness}}</h2>
+                    <h3>{{oferta.promoName}}</h3>
+                    <p>{{oferta.promoDescription}}</p>
+                </ion-label>
+            </a>
         </ion-item>
     </ion-list>
 </ion-content>
