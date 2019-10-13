@@ -86,7 +86,7 @@ export class AuthService {
     });
   }
 
-  //Para traer el key guardar y usar el firebase.User?
+  //Devuelve el key del usuario logueado
   getCurrentUserKey(){
     return this.authUser.uid;
   }
@@ -94,5 +94,18 @@ export class AuthService {
   // Send email verfificaiton when new user sign up
   async sendVerificationMail() {
     return await this.authUser.sendEmailVerification();
+  }
+
+  //Envía un correo para cambio de usuario
+  changePassword(email: string){
+    return new Promise((resolve, reject) => {
+      this.AFauth.auth.sendPasswordResetEmail(email).then(function() {
+        // Email sent.
+        resolve();
+      }).catch(function(error) {
+        // An error happened.
+        reject();
+      });
+    });
   }
 } 
