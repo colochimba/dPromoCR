@@ -49,7 +49,8 @@ export class AuthService {
       if(this.AFauth.auth.currentUser){
         this.AFauth.auth.signOut()
         .then(() => {
-          console.log("LOG Out");
+          this.currentUser = new User();
+          this.authUser = null;
           resolve();
         }).catch((error) => {
           reject();
