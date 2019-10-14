@@ -1,12 +1,12 @@
 <ion-header translucent>
-    <ion-toolbar>
+    <ion-toolbar color="dark">
         <ion-title>Noticia</ion-title>
         <ion-buttons slot="start">
-            <ion-button (click)="closeModal()">Atrás</ion-button>
+            <ion-button (click)="closeModal()"><ion-icon name="close"></ion-icon></ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content fullscreen>
+<ion-content fullscreen color="dark">
     <ion-card mode="ios" color="light">
         <ion-img [src]="this.promoPhotoURL"></ion-img>
         <ion-card-header>
