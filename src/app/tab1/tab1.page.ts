@@ -28,6 +28,7 @@ export class Tab1Page {
   this.categorias = (jsondata as any).default.categories;
  this.ofertas = (jsondata as any).default.promotions; //para trabajar con el json local
 
+ this.navParams.ofertas = this.ofertas;
  this.navParams.destacadas = this.destacadas;
  /*//para evitar el CORS error y enviar mediante un proxy
     const proxyurl = "https://cors-anywhere.herokuapp.com/";

@@ -1,0 +1,24 @@
+<ion-header translucent>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Ver Promociones Usadas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="" color="dark">
+    <ion-card mode="ios" color="light" *ngFor="let promo of this.authService.currentUser.mispromos">
+        <ion-card-header>
+            <ion-card-subtitle>{{promo.business}}</ion-card-subtitle>
+            <ion-card-title>{{promo.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-avatar slot="start" class="ios hydrated">
+                <ion-img [src]='promo.photo'></ion-img>
+            </ion-avatar>
+            {{promo.description}}<br>Canjeada el: {{promo.date}}
+        </ion-card-content>
+    </ion-card>
+</ion-content>

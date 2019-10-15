@@ -75,8 +75,13 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
+        <ng-template [ngIf]="this.authService.currentUser.active && this.unusedPromo(ofertaDetalle.promoID)" [ngIfElse]="deactive">
+            <ion-button color='primary' expand="full" (click)="canjearCupon()" routerLink="/">Canjear Cupón</ion-button>
+        </ng-template>
+        <ng-template #deactive>
+            <ion-button color='medium' expand="full" (click)='presentAlertConfirm()'>Canjear Cupón</ion-button>
+        </ng-template>
 
-        <ion-button [color]="this.authService.currentUser.active? 'primary' : 'medium'" expand="full" (click)='presentAlertConfirm()'>Canjear Cupón</ion-button>
     </ion-card>
 
     <!-- List of Text Items -->

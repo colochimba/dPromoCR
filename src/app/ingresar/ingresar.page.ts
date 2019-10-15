@@ -19,10 +19,14 @@ export class IngresarPage implements OnInit {
   }
 
   OnSubmitLogin(){
-    this.authService.login(this.email, this.password).then( res => {
-      this.password = "";
-      this.router.navigate(['']);
-    }).catch(err => alert('los datos son incorrectos o no existe el usuario'))
+    //https://stackoverflow.com/questions/47751377/firebase-prevent-same-account-on-multiple-devices
+      //alert("Sesión iniciada. Desea cerrar la sesión para ingresar de otro dispositivo?");
+    //}else{
+      this.authService.login(this.email, this.password).then( res => {
+        this.password = "";
+        this.router.navigate(['']);
+      }).catch(err => alert('los datos son incorrectos o no existe el usuario'));
+    //}
   }
 
   onChangePassword(){

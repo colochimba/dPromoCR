@@ -30,7 +30,7 @@ export class OfertaDetallePage implements OnInit {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       header: 'Adquiere la Membresia!',
-      message: 'Para poder redemir esta promo necesita aquirir la Membresia DpromoCR',
+      message: 'La Promo ya fue utilizada o necesita aquirir la Membresia DpromoCR',
       buttons: [
         {
           text: 'Cancelar',
@@ -56,5 +56,33 @@ export class OfertaDetallePage implements OnInit {
 
     this.ofertaDetalle = ofertaActual;
     this.recomendaciones =  this.navParams.destacadas.filter(oferta => oferta.promoCategory === categoria && oferta.promoID != ofertaActual.promoID);
+  }
+
+  //Este método debe enviar la notificación al negocio para aceptar el cupón.
+  //El negocio debe responder
+  //Si el cupon se va a canjear debe realizar lo siguiente
+  canjearCupon(){
+    var today = new Date();
+    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    var time = today.getHours() + ":" + today.getMinutes();
+    var dateTime = date+' '+time;
+    alert("Promoción aplicada correctamente!");
+    this.authService.currentUser.mispromos.push({"promoID":this.ofertaDetalle.promoID,
+                                                "date":dateTime,
+                                                "name":this.ofertaDetalle.promoName,
+                                                "business":this.ofertaDetalle.promoBusiness,
+                                                "photo":this.ofertaDetalle.promoPhotoURL,
+                                                "description": this.ofertaDetalle.promoDescription});
+  }
+
+  //true si la promo no ha sido usada (guardada en mis promos)
+  //false si la promo ya fue usada y esta guardada en mis promos
+  unusedPromo(id){
+    for(let i=0; i < this.authService.currentUser.mispromos.length; i++){
+      if(this.authService.currentUser.mispromos[i].promoID == id){
+        return false;
+      }
+    }
+    return true;
   }
 }

@@ -71,6 +71,9 @@ export class AuthService {
     await this.Afirebase.database.ref('user/'+this.getCurrentUserKey()).once('value')
       .then(snapshot => {
         this.currentUser =  snapshot.val();
+        if(this.currentUser.mispromos === undefined){
+          this.currentUser.mispromos = new Array();
+        }
       });
   }
 
@@ -86,6 +89,8 @@ export class AuthService {
       })
     });
   }
+
+  
 
   //Devuelve el key del usuario logueado
   getCurrentUserKey(){

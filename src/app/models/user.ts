@@ -8,4 +8,8 @@ export class User {
     idtype: string = "";
     paypalid: string = "";
     active: boolean = false;
+    mispromos = [];
+    constructor(){
+        this.mispromos = new Array();
+    }
 }
