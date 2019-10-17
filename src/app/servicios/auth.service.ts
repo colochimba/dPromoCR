@@ -6,6 +6,7 @@ import { resolve, reject } from 'q';
 import { AngularFireDatabase } from '@angular/fire/database';
 
 import { User } from '../models/user';
+import { Message } from '../models/message'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -114,4 +115,48 @@ export class AuthService {
       });
     });
   }
+
+  /**Esto deberia ir en otro servicio de comunicacion es solo para pruebas */
+  sendMessage(msg: string) {
+    const newpath = "cafeteria dos";// nombre del negocio
+    const path = `message/${newpath}`;
+    var newmessage = new Message();
+     
+      var newPostKey = this.Afirebase.database.ref().child('path').push().key;
+      newmessage.key = newPostKey;
+      newmessage.userName = this.currentUser.email;
+      newmessage.timeSent = this.getTimeStamp();
+      newmessage.message = msg;
+      this.Afirebase.database.ref(path).child(newPostKey).set({newmessage});
+    }
+
+   getMessages(){
+    return new Promise(resolve => {
+      setTimeout(() => {
+        var userName = this.currentUser.email;
+        var msgRef = this.Afirebase.database.ref('message/' + "cafeteria dos");
+        msgRef.limitToLast(1).on('value', function(snapshot) {
+          if(snapshot.val() !== null){
+            var dMessage: Message = snapshot.child(JSON.stringify(snapshot.val()).split('"')[1]).val().newmessage;
+            if(dMessage.userName !==  userName){ // if the last message is not sent by me
+              alert(dMessage.message);
+            }
+          }
+        });
+        resolve();
+      }, 2000);
+    });
+    
 } 
+getTimeStamp() {
+  const now = new Date();
+  const date = now.getUTCFullYear() + '/' +
+               (now.getUTCMonth() + 1) + '/' +
+               now.getUTCDate();
+  const time = now.getUTCHours() + ':' +
+               now.getUTCMinutes() + ':' +
+               now.getUTCSeconds();
+
+  return (date + ' ' + time);
+}
+}

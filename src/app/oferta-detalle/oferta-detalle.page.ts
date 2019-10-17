@@ -66,6 +66,13 @@ export class OfertaDetallePage implements OnInit {
     var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
     var time = today.getHours() + ":" + today.getMinutes();
     var dateTime = date+' '+time;
+    this.authService.sendMessage("Canjear cupon");
+    this.get().then(()=>{
+      console.log("receiving...");
+    }).catch(err => console.log(err));
+
+
+
     alert("Promoción aplicada correctamente!");
     this.authService.currentUser.mispromos.push({"promoID":this.ofertaDetalle.promoID,
                                                 "date":dateTime,
@@ -85,4 +92,9 @@ export class OfertaDetallePage implements OnInit {
     }
     return true;
   }
+
+  /**********testing */
+  async get(){
+    await this.authService.getMessages();
+   }
 }
