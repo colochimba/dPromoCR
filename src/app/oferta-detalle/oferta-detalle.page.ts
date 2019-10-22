@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { NavService } from '../servicios/nav.service';
 import { AuthService } from '../servicios/auth.service';
+import { CommService } from '../servicios/comm.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class OfertaDetallePage implements OnInit {
     freeMode: true
   };
 
-  constructor(public navParams: NavService, public authService: AuthService, public alertController: AlertController) {}
+  constructor(public navParams: NavService, public authService: AuthService, private commService: CommService, public alertController: AlertController) {}
 
   ngOnInit() {
     this.ofertaDetalle = this.navParams.myParam.oferta;
@@ -66,20 +67,19 @@ export class OfertaDetallePage implements OnInit {
     var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
     var time = today.getHours() + ":" + today.getMinutes();
     var dateTime = date+' '+time;
-    this.authService.sendMessage("Canjear cupon");
+    this.commService.sendMessage("Canjear cupon");
     this.get().then(()=>{
       console.log("receiving...");
-    }).catch(err => console.log(err));
-
-
-
-    alert("Promoción aplicada correctamente!");
+      alert("Promoción aplicada correctamente!");
     this.authService.currentUser.mispromos.push({"promoID":this.ofertaDetalle.promoID,
                                                 "date":dateTime,
                                                 "name":this.ofertaDetalle.promoName,
                                                 "business":this.ofertaDetalle.promoBusiness,
                                                 "photo":this.ofertaDetalle.promoPhotoURL,
                                                 "description": this.ofertaDetalle.promoDescription});
+    //update the user in DB
+    }).catch(err => alert("Lo sentimos la promoción no aplica."));
+
   }
 
   //true si la promo no ha sido usada (guardada en mis promos)
@@ -93,8 +93,8 @@ export class OfertaDetallePage implements OnInit {
     return true;
   }
 
-  /**********testing */
+
   async get(){
-    await this.authService.getMessages();
+    await this.commService.getMessages();
    }
 }
