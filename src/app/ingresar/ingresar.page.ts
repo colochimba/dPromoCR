@@ -15,7 +15,14 @@ export class IngresarPage implements OnInit {
   password: string;
 
   constructor(private authService: AuthService, public router: Router, private storage: Storage) { 
-    this.storage.get("dpromocr").then((val) => authService.authUser = (<firebase.User>JSON.parse(val)));
+    this.storage.get("dpromocr").then((val) => {
+      if(val != undefined && val != null){
+        authService.authUser = (<firebase.User>JSON.parse(val));
+        authService.getUserInDB();
+        this.router.navigate(['tab']);
+      }
+    });
+    
   }
 
   ngOnInit() {
@@ -29,7 +36,7 @@ export class IngresarPage implements OnInit {
         this.password = "";
         this.storage.set("dpromocr", JSON.stringify(this.authService.authUser));
         this.router.navigate(['tab']);
-      }).catch(err => alert('los datos son incorrectos o no existe el usuario'+err));
+      }).catch(err => alert('los datos son incorrectos o no existe el usuario'));
 
       
     //}

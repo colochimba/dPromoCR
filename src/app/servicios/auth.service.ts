@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { promise } from 'protractor';
 import { resolve, reject } from 'q';
+import { Storage } from '@ionic/storage';
 
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -14,7 +15,7 @@ export class AuthService {
 
   currentUser: User = new User();
   authUser: firebase.User;
-  constructor(private AFauth : AngularFireAuth, private Afirebase: AngularFireDatabase) { }
+  constructor(private AFauth : AngularFireAuth, private Afirebase: AngularFireDatabase, private storage: Storage) { }
 
   login(email:string, password:string){
     return new Promise((resolve, rejected) =>{
@@ -45,6 +46,7 @@ export class AuthService {
 
   logoutUser(){
     return new Promise((resolve, reject) => {
+      this.storage.remove("dpromocr");
       if(this.AFauth.auth.currentUser){
         this.AFauth.auth.signOut()
         .then(() => {
@@ -55,6 +57,7 @@ export class AuthService {
           reject();
         });
       }
+      resolve();
     })
   }
 

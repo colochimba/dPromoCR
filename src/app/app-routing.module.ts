@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'pago-membresia', canActivate: [AuthGuardService], loadChildren: './pago-membresia/pago-membresia.module#PagoMembresiaPageModule' },
   { path: 'perfil', canActivate: [AuthGuardService], loadChildren: './perfil/perfil.module#PerfilPageModule' },
   { path: 'mispromos', canActivate: [AuthGuardService], loadChildren: './mispromos/mispromos.module#MispromosPageModule' },
-  { path: '**', redirectTo: 'ingresar' }
+  { path: '', canActivate: [AuthGuardService], loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: '**', redirectTo: 'ingresar' },
+  
 ];
 @NgModule({
   imports: [
