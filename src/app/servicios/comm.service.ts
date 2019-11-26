@@ -12,8 +12,8 @@ export class CommService {
 
   constructor(private authService: AuthService, private Afirebase: AngularFireDatabase) { }
 
-  sendMessage(msg: string) {
-    const newpath = "cafeteria dos";// nombre del negocio
+  sendMessage(businessName: string, promoName: string, promoDescription: string) {
+    const newpath = businessName;// nombre del negocio
     const path = `message/${newpath}`;
     var newmessage = new Message();
      
@@ -21,15 +21,15 @@ export class CommService {
       newmessage.key = newPostKey;
       newmessage.userName = this.authService.currentUser.email;
       newmessage.timeSent = this.getTimeStamp();
-      newmessage.message = msg;
+      newmessage.message = "Canjear cupón: " + promoName + ". " + promoDescription ;
       this.Afirebase.database.ref(path).child(newPostKey).set({newmessage});
     }
 
-   getMessages(){
+   getMessages(businessName: string){
     return new Promise((resolve,reject) => {
       setTimeout(() => {
         var userName = this.authService.currentUser.email;
-        var msgRef = this.Afirebase.database.ref('message/' + "cafeteria dos");
+        var msgRef = this.Afirebase.database.ref('message/' + businessName);
         msgRef.limitToLast(1).on('value', function(snapshot) {
           if(snapshot.val() !== null){
             var dMessage: Message = snapshot.child(JSON.stringify(snapshot.val()).split('"')[1]).val().newmessage;
@@ -45,17 +45,17 @@ export class CommService {
         //reject();
       }, 1000);
     });
-    
-} 
-getTimeStamp() {
-  const now = new Date();
-  const date = now.getUTCFullYear() + '/' +
-               (now.getUTCMonth() + 1) + '/' +
-               now.getUTCDate();
-  const time = now.getUTCHours() + ':' +
-               now.getUTCMinutes() + ':' +
-               now.getUTCSeconds();
+  } 
+  
+  getTimeStamp() {
+    const now = new Date();
+    const date = now.getUTCFullYear() + '/' +
+                (now.getUTCMonth() + 1) + '/' +
+                now.getUTCDate();
+    const time = now.getUTCHours() + ':' +
+                now.getUTCMinutes() + ':' +
+                now.getUTCSeconds();
 
-  return (date + ' ' + time);
-}
+    return (date + ' ' + time);
+  }
 }

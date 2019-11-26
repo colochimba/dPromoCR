@@ -76,14 +76,22 @@
             </ion-row>
         </ion-grid>
         <ng-template [ngIf]="this.authService.currentUser.active && this.unusedPromo(ofertaDetalle.promoID)" [ngIfElse]="deactive">
-            <ion-button color='primary' expand="full" (click)="canjearCupon()" routerLink="/">Canjear Cupón</ion-button>
+            <ion-button color='primary' expand="full" (click)="canjearCupon()">Canjear Cupón</ion-button>
         </ng-template>
         <ng-template #deactive>
             <ion-button color='medium' expand="full" (click)='presentAlertConfirm()'>Canjear Cupón</ion-button>
         </ng-template>
 
     </ion-card>
-
+    <!-- Loagind bar Deberiamos tambien deshabilitar el resto de la pantalla mientras esta esperando....-->
+    <ng-container *ngIf="this.waiting">
+        <ion-list-header>
+            <ion-label id="loadingLabel">
+                Esperando
+            </ion-label>
+            <ion-spinner name="bubbles"></ion-spinner>
+        </ion-list-header>
+    </ng-container>
     <!-- List of Text Items -->
     <ion-list>
         <ion-item class="item ios in-list ion-focusable item-label hydrated" *ngFor="let oferta of recomendaciones">

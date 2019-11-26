@@ -19,8 +19,8 @@ export class RegistroPage implements OnInit {
 
   submitRegister(){
     this.authService.register(this.email, this.password).then( res => {
-      alert('Please validate your email address. Kindly check your inbox.');
-      this.router.navigate(['/ingresar']);
+      alert('Por favor valide su correo electrónico. Revise su bandeja de entrada.');
+      this.router.navigate(['']);
     }).catch(err => alert('No se pudo crear el usuario.'+ err))
   }
 

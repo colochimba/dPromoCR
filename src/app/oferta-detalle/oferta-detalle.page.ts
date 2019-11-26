@@ -14,7 +14,7 @@ export class OfertaDetallePage implements OnInit {
 
   ofertaDetalle
   recomendaciones
-  
+  public waiting: boolean = false;
 
   slideOpts = {
     slidesPerView: 1.1,
@@ -30,8 +30,8 @@ export class OfertaDetallePage implements OnInit {
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
-      header: 'Adquiere la Membresia!',
-      message: 'La Promo ya fue utilizada o necesita aquirir la Membresia DpromoCR',
+      header: 'Adquiere la Membresía!',
+      message: 'La Promo ya fue utilizada o necesita aquirir la Membresía DpromoCR',
       buttons: [
         {
           text: 'Cancelar',
@@ -41,7 +41,7 @@ export class OfertaDetallePage implements OnInit {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: 'Membresia',
+          text: 'Membresía',
           handler: () => {
             window.location.href = "/pago-membresia";
           }
@@ -67,10 +67,11 @@ export class OfertaDetallePage implements OnInit {
     var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
     var time = today.getHours() + ":" + today.getMinutes();
     var dateTime = date+' '+time;
-    this.commService.sendMessage("Canjear cupon");
+    this.commService.sendMessage(this.ofertaDetalle.promoBusiness,this.ofertaDetalle.promoName, this.ofertaDetalle.promoDescription);
+    this.waiting = true;
     this.get().then(()=>{
-      console.log("receiving...");
       alert("Promoción aplicada correctamente!");
+      this.waiting = false;
     this.authService.currentUser.mispromos.push({"promoID":this.ofertaDetalle.promoID,
                                                 "date":dateTime,
                                                 "name":this.ofertaDetalle.promoName,
@@ -78,7 +79,7 @@ export class OfertaDetallePage implements OnInit {
                                                 "photo":this.ofertaDetalle.promoPhotoURL,
                                                 "description": this.ofertaDetalle.promoDescription});
     //update the user in DB
-    }).catch(err => alert("Lo sentimos la promoción no aplica."));
+    }).catch(err => {alert("Lo sentimos la promoción no aplica.");this.waiting=false;});
 
   }
 
@@ -95,6 +96,6 @@ export class OfertaDetallePage implements OnInit {
 
 
   async get(){
-    await this.commService.getMessages();
+    await this.commService.getMessages(this.ofertaDetalle.promoBusiness);
    }
 }

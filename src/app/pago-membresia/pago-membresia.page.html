@@ -34,7 +34,49 @@
         <ion-checkbox slot="end" checked="true"></ion-checkbox>
     </ion-item>
 
-    <ion-button expand="block" class="ion-margin-top" padding routerLink="/" (click)="makePayment()">Pagar</ion-button>
+
+    <ion-card class="welcome-card">
+        <ion-card-header>
+            <ion-card-subtitle>Get Started</ion-card-subtitle>
+            <ion-card-title>PayPal Sample</ion-card-title>
+            <ion-row>
+                <ion-col>
+                    Total Payment
+                </ion-col>
+                <ion-col>
+                    {{currencyIcon}}{{paymentAmount}}
+                </ion-col>
+            </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+            <A HREF="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TDPSUTK2U83UN">
+                <IMG SRC="https://www.paypalobjects.com/es_XC/i/btn/btn_subscribeCC_LG.gif" BORDER="0">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+            </A>
+        </ion-card-content>
+    </ion-card>
     <ion-button expand="block" class="ion-margin-top" padding routerLink="/">Regresar</ion-button>
+
+
+    <A HREF="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=8LJ55C43NKS2W">
+        <IMG SRC="https://www.paypalobjects.com/es_XC/i/btn/btn_unsubscribe_SM.gif" BORDER="0">
+    </A>
+
+
+
+    <div class="row col-md-12 align-items-center justify-content-center">
+
+        <div class="col">
+            <select id="ddlplan" [(ngModel)]="planId">  
+            <option value="">Select Plan </option>  
+            <option value="P-2XF38890MB586901YLW3Z7RA">SINGLE DEVICE MONTHLY </option>   
+            <option value="P-3NS34795KB814132ALVTDMKI">Test Daily Plan</option>  
+          </select></div>
+        <div class="col">
+            <div #paypal></div>
+        </div>
+
+    </div>
+
 
 </ion-content>

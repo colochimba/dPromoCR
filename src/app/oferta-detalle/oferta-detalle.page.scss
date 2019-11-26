@@ -1,46 +1,54 @@
-a{
-  text-decoration: none;
-
+a {
+    text-decoration: none;
 }
 
 ion-card-header {
-padding: 0
+    padding: 0
 }
 
 ion-card-content {
-  padding-top: 10px
+    padding-top: 10px
 }
 
-.swiper-container-horizontal>.swiper-pagination-bullets{
-  bottom: 40px
+.swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 40px
 }
 
 ion-slides {
-  ion-card{
-    padding: 0;
-    margin: 10px 5px;
-  }
+    ion-card {
+        padding: 0;
+        margin: 10px 5px;
+    }
 }
 
-ion-card{
-  padding: 10px
+ion-card {
+    padding: 10px
 }
 
-ion-col  ion-card{
-  margin: 0
-
-
-}
-ion-icon{
-  color: #a51838
+ion-col ion-card {
+    margin: 0
 }
 
-
-ion-label{
-  color: black !important;
-  white-space: normal !important;
+ion-icon {
+    color: #a51838
 }
-ion-avatar{
-  float: left;
-  margin-right:10px;
+
+ion-label {
+    color: black !important;
+    white-space: normal !important;
+}
+
+ion-avatar {
+    float: left;
+    margin-right: 10px;
+}
+
+ion-list-header {
+    background-color: lightgray;
+    ion-label {
+        margin-left: auto;
+    }
+    ion-spinner {
+        margin-right: auto;
+    }
 }

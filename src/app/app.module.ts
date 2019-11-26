@@ -19,11 +19,16 @@ import { AngularFireDatabase } from '@angular/fire/database';
 
 import {NoticiaPage} from './noticia/noticia.page';
 
+
+import { IonicStorageModule } from '@ionic/storage';
+import { PayPal } from '@ionic-native/paypal/ngx';
+
 @NgModule({
   declarations: [AppComponent, NoticiaPage],
   entryComponents: [NoticiaPage],
   imports: [BrowserModule,
             IonicModule.forRoot(),
+            IonicStorageModule.forRoot(),
             AppRoutingModule,
             HttpClientModule,
             AngularFireModule.initializeApp(firebaseConfig),
@@ -33,7 +38,8 @@ import {NoticiaPage} from './noticia/noticia.page';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     OfertasProviderService,
-    AngularFireDatabase
+    AngularFireDatabase,
+    PayPal
   ],
   bootstrap: [AppComponent]
 })

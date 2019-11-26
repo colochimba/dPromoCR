@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from '../app/servicios/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  //{path:'tab1', loadChildren: './tabs/tabs.module#TabsPageModule'},
+  { path: 'tab', canActivate: [AuthGuardService], loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule' },
   { path: 'ingresar', loadChildren: './ingresar/ingresar.module#IngresarPageModule' },
-  { path: 'oferta-detalle', loadChildren: './oferta-detalle/oferta-detalle.module#OfertaDetallePageModule' },
-  { path: 'pago-membresia', loadChildren: './pago-membresia/pago-membresia.module#PagoMembresiaPageModule' },
-  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
-  { path: 'mispromos', loadChildren: './mispromos/mispromos.module#MispromosPageModule' }
+  { path: 'oferta-detalle', canActivate: [AuthGuardService], loadChildren: './oferta-detalle/oferta-detalle.module#OfertaDetallePageModule' },
+  { path: 'pago-membresia', canActivate: [AuthGuardService], loadChildren: './pago-membresia/pago-membresia.module#PagoMembresiaPageModule' },
+  { path: 'perfil', canActivate: [AuthGuardService], loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'mispromos', canActivate: [AuthGuardService], loadChildren: './mispromos/mispromos.module#MispromosPageModule' },
+  { path: '**', redirectTo: 'ingresar' }
 ];
 @NgModule({
   imports: [

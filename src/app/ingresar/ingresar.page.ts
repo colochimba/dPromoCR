@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../servicios/auth.service';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -13,7 +14,9 @@ export class IngresarPage implements OnInit {
   email: string;
   password: string;
 
-  constructor(private authService: AuthService, public router: Router) { }
+  constructor(private authService: AuthService, public router: Router, private storage: Storage) { 
+    this.storage.get("dpromocr").then((val) => authService.authUser = (<firebase.User>JSON.parse(val)));
+  }
 
   ngOnInit() {
   }
@@ -24,8 +27,11 @@ export class IngresarPage implements OnInit {
     //}else{
       this.authService.login(this.email, this.password).then( res => {
         this.password = "";
-        this.router.navigate(['']);
-      }).catch(err => alert('los datos son incorrectos o no existe el usuario'));
+        this.storage.set("dpromocr", JSON.stringify(this.authService.authUser));
+        this.router.navigate(['tab']);
+      }).catch(err => alert('los datos son incorrectos o no existe el usuario'+err));
+
+      
     //}
   }
 
