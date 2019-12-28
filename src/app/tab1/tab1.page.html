@@ -1,5 +1,5 @@
 <ion-content color="dark">
-    <h1 padding>Recomendaciones</h1>
+    <h1 class="ion-padding">Recomendaciones</h1>
     <ion-slides pager="false" slidesPerView="1.5" spaceBetween="10">
         <ion-slide *ngFor="let oferta of destacadas">
             <a (click)="presentOferta(oferta)" routerLink="/oferta-detalle">
@@ -18,12 +18,12 @@
     </ion-slides>
 
     <!-- Categories -->
-    <h2 padding>Categorias</h2>
+    <h2 class="ion-padding">Categorias</h2>
     <ion-grid>
         <ion-row>
             <ion-segment scrollable>
                 <ion-col size="4" *ngFor="let categoria of categorias">
-                    <ion-card (click)="actualizarListaPromos(categoria.categoryName)" color="light" text-center>
+                    <ion-card class="ion-text-center" (click)="actualizarListaPromos(categoria.categoryName)" color="light">
                         <ion-icon size="large" name={{categoria.categoryIcon}}></ion-icon>
                         <ion-card-content>{{categoria.categoryName}}</ion-card-content>
                     </ion-card>
@@ -33,7 +33,7 @@
     </ion-grid>
 
     <!-- List of Text Items -->
-    <h2 padding>Todas las promociones{{this.categoriaActual}}</h2>
+    <h2 class="ion-padding">Todas las promociones{{this.categoriaActual}}</h2>
     <ion-list>
         <ion-item class="item ios in-list ion-focusable item-label hydrated" *ngFor="let oferta of ofertas">
             <a (click)="presentOferta(oferta)" routerLink="/oferta-detalle">

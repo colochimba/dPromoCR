@@ -15,7 +15,7 @@
 
     </ion-list-header> -->
 
-    <div text-wrap text-center class="username">{{this.authservice.currentUser.name}} {{this.authservice.currentUser.lastname}}</div>
+    <div class="ion-text-center ion-text-wrap username">{{this.authservice.currentUser.name}} {{this.authservice.currentUser.lastname}}</div>
 
     <ion-list lines="none">
         <ion-item detail color="dark" routerLink="/perfil">
@@ -31,11 +31,11 @@
             <ion-label>Método de pago</ion-label>
         </ion-item>
         <ion-item href="#" detail color="dark" routerLink="/ayuda">
-            <ion-icon slot="start" color="medium" name="help"></ion-icon>
+            <ion-icon slot="start" color="medium" name="help-circle"></ion-icon>
             <ion-label>Ayuda</ion-label>
         </ion-item>
         <ion-item href="#" detail color="dark" routerLink="/politicas-privacidad">
-            <ion-icon slot="start" color="medium" name="help"></ion-icon>
+            <ion-icon slot="start" color="medium" name="document"></ion-icon>
             <ion-label>Políticas de privacidad</ion-label>
         </ion-item>
     </ion-list>

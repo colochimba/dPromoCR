@@ -115,8 +115,6 @@ Urgente
 -Integrate with Paypal...crear la opción de usar gratuitamente
 -Pagina de configuracion de app...
 -Politicas de privacidad
--Ayuda
--Contacto
 -Donde guardar la info de configuracion de paypal? json?
 --Interfaz para cargar informacion al JSON con las ofertas
 

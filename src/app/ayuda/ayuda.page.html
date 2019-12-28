@@ -1,9 +1,47 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ayuda</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content center class="ion-padding bg-image" fullscreen="true">
 
-<ion-content>
+    <ion-img src="assets/images/logo-dpromocr.png"></ion-img>
+    <div class="ion-text-center">
+        <h2>Ayuda</h2>
+    </div>
 
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Abrir una cuenta
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <p>Aqui explicamos todo</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Ver las promociones
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Aqui explicamos el resto</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Abrir una cuenta
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+              </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <p>Aqui explicamos todo</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Contacto
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Escribenos a alejandro.arce@dpromocr.com</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <ion-button expand="block" class="ion-padding ion-margin-top" routerLink="/">Regresar</ion-button>
 </ion-content>

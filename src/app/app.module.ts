@@ -22,6 +22,9 @@ import {NoticiaPage} from './noticia/noticia.page';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { PayPal } from '@ionic-native/paypal/ngx';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [AppComponent, NoticiaPage],
@@ -32,7 +35,9 @@ import { PayPal } from '@ionic-native/paypal/ngx';
             AppRoutingModule,
             HttpClientModule,
             AngularFireModule.initializeApp(firebaseConfig),
-            AngularFireAuthModule],
+            AngularFireAuthModule,
+            BrowserAnimationsModule,
+            MatExpansionModule],
   providers: [
     StatusBar,
     SplashScreen,

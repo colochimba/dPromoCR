@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { AyudaPage } from './ayuda.page';
 
+import { MatExpansionModule } from '@angular/material/expansion';
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    MatExpansionModule,
     RouterModule.forChild(routes)
   ],
   declarations: [AyudaPage]
