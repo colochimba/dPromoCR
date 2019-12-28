@@ -52,7 +52,7 @@ var Tab3PageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color=\"dark\">\n        <ion-title>\n            Configuración\n        </ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"settings-page\" color=\"dark\">\n\n    <ion-list-header>\n        <ion-avatar clear block>\n            <img src=\"assets/images/avatar-user.png\">\n        </ion-avatar>\n\n    </ion-list-header>\n\n    <div text-wrap text-center class=\"username\">{{currentUser.name}} {{currentUser.lastname}}</div>\n\n    <ion-list lines=\"none\">\n        <ion-item detail color=\"dark\" routerLink=\"/perfil\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"person\"></ion-icon>\n            <ion-label>Mi Perfil</ion-label>\n        </ion-item>\n        <ion-item href=\"#\" detail color=\"dark\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"pricetag\"></ion-icon>\n            <ion-label>Mis Promos</ion-label>\n        </ion-item>\n        <ion-item href=\"#\" detail color=\"dark\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"card\"></ion-icon>\n            <ion-label>Método de pago</ion-label>\n        </ion-item>\n        <ion-item href=\"#\" detail color=\"dark\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"options\"></ion-icon>\n            <ion-label>Configuración App</ion-label>\n        </ion-item>\n    </ion-list>\n</ion-content>\n\n<ion-footer color=\"dark\">\n    <ion-grid fixed color=\"dark\">\n        <ion-row>\n            <ion-col size=\"10\" offset=\"1\">\n                <ion-button shape=\"round\" mode=\"md\" size=\"small\" expand=\"full\" color=\"light\" class=\"ion-color ion-color-light ios button button-large button-solid ion-activatable ion-focusable hydrated\">Cerrar Sesión</ion-button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-footer>"
+module.exports = "<ion-header>\n    <ion-toolbar color=\"dark\">\n        <ion-title>\n            Configuración\n        </ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"settings-page\" color=\"dark\">\n\n    <!-- <ion-list-header>\n        <ion-avatar clear block>\n            <img src=\"assets/images/avatar-user.png\">\n        </ion-avatar>\n\n    </ion-list-header> -->\n\n    <div text-wrap text-center class=\"username\">{{this.authservice.currentUser.name}} {{this.authservice.currentUser.lastname}}</div>\n\n    <ion-list lines=\"none\">\n        <ion-item detail color=\"dark\" routerLink=\"/perfil\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"person\"></ion-icon>\n            <ion-label>Mi Perfil</ion-label>\n        </ion-item>\n        <ion-item detail color=\"dark\" routerLink=\"/mispromos\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"pricetag\"></ion-icon>\n            <ion-label>Mis Promos</ion-label>\n        </ion-item>\n        <ion-item href=\"#\" detail color=\"dark\" routerLink=\"/pago-membresia\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"card\"></ion-icon>\n            <ion-label>Método de pago</ion-label>\n        </ion-item>\n        <ion-item href=\"#\" detail color=\"dark\" routerLink=\"/ayuda\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"help\"></ion-icon>\n            <ion-label>Ayuda</ion-label>\n        </ion-item>\n        <ion-item href=\"#\" detail color=\"dark\" routerLink=\"/politicas-privacidad\">\n            <ion-icon slot=\"start\" color=\"medium\" name=\"help\"></ion-icon>\n            <ion-label>Políticas de privacidad</ion-label>\n        </ion-item>\n    </ion-list>\n</ion-content>\n\n<ion-footer color=\"dark\">\n    <ion-grid fixed color=\"dark\">\n        <ion-row>\n            <ion-col size=\"10\" offset=\"1\">\n                <ion-button (click)=\"logout()\" shape=\"round\" mode=\"md\" size=\"small\" expand=\"full\" color=\"light\" class=\"ion-color ion-color-light ios button button-large button-solid ion-activatable ion-focusable hydrated\">Cerrar Sesión</ion-button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-footer>"
 
 /***/ }),
 
@@ -80,15 +80,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../servicios/auth.service */ "./src/app/servicios/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 var Tab3Page = /** @class */ (function () {
-    function Tab3Page(authservice) {
+    function Tab3Page(authservice, router) {
         this.authservice = authservice;
+        this.router = router;
     }
     Tab3Page.prototype.ngOnInit = function () {
-        this.currentUser = this.authservice.currentUser;
+    };
+    Tab3Page.prototype.logout = function () {
+        var _this = this;
+        this.authservice.logoutUser().then(function () {
+            _this.router.navigate(['/ingresar']);
+        }).catch(function (error) {
+            alert("Error inesperado");
+        });
     };
     Tab3Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -96,7 +106,7 @@ var Tab3Page = /** @class */ (function () {
             template: __webpack_require__(/*! ./tab3.page.html */ "./src/app/tab3/tab3.page.html"),
             styles: [__webpack_require__(/*! ./tab3.page.scss */ "./src/app/tab3/tab3.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], Tab3Page);
     return Tab3Page;
 }());

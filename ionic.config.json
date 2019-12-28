@@ -1,5 +1,7 @@
 {
-  "name": "dPromoCR-v1",
-  "integrations": {},
-  "type": "angular"
+    "name": "dPromoCR-v1",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "angular"
 }

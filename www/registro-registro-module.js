@@ -58,7 +58,7 @@ var RegistroPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content center padding class=\"bg-image\" fullscreen=\"true\">\n\n    <ion-grid>\n        <ion-row justify-content-center class=\"ion-padding-top\">\n\n            <ion-img src=\"assets/images/logo-dpromocr.png\"></ion-img>\n\n            <ion-col align-self-center size-md=\"6\" size-lg=\"5\" size-xs=\"12\">\n                <div text-center>\n                    <h2>Registrarse</h2>\n                    <h4>Por favor ingrese los siguientes datos para crear una cuenta</h4>\n                </div>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <form action=\"/signup\" method=\"post\" (ngSubmit)=\"submitRegister()\">\n        <ion-item>\n\n            <ion-label position=\"floating\">Email</ion-label>\n            <ion-input [(ngModel)]=\"email\" name=\"email\" type=\"email\"></ion-input>\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label position=\"floating\">Password</ion-label>\n            <ion-input [(ngModel)]=\"password\" name=\"password\" type=\"password\"></ion-input>\n        </ion-item>\n\n\n        <ion-button type=\"submit\" expand=\"block\" class=\"ion-margin-top\" padding>Crear Cuenta</ion-button>\n\n    </form>\n\n</ion-content>\n\n<ion-footer padding text-center>\n\n    <a class=\"ion-margin-bottom\" routerLink=\"/ingresar\">Si ya tiene cuenta, por favor ingresar.</a>\n</ion-footer>"
+module.exports = "<ion-content center padding class=\"bg-image\" fullscreen=\"true\">\n\n    <ion-grid>\n        <ion-row justify-content-center class=\"ion-padding-top\">\n\n            <ion-img src=\"assets/images/logo-dpromocr.png\"></ion-img>\n\n            <ion-col align-self-center size-md=\"6\" size-lg=\"5\" size-xs=\"12\">\n                <div text-center>\n                    <h2>Registrarse</h2>\n                    <h4>Por favor ingrese los siguientes datos para crear una cuenta</h4>\n                </div>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <form action=\"/signup\" method=\"post\" (ngSubmit)=\"submitRegister()\">\n        <ion-item>\n\n            <ion-label position=\"floating\">Correo Electrónico</ion-label>\n            <ion-input [(ngModel)]=\"email\" name=\"email\" type=\"email\"></ion-input>\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label position=\"floating\">Contraseña</ion-label>\n            <ion-input [(ngModel)]=\"password\" name=\"password\" type=\"password\"></ion-input>\n        </ion-item>\n\n\n        <ion-button type=\"submit\" expand=\"block\" class=\"ion-margin-top\" padding>Crear Cuenta</ion-button>\n\n    </form>\n\n</ion-content>\n\n<ion-footer padding text-center>\n\n    <a class=\"ion-margin-bottom\" routerLink=\"/ingresar\">Si ya tiene cuenta, por favor ingresar.</a>\n</ion-footer>"
 
 /***/ }),
 
@@ -101,8 +101,8 @@ var RegistroPage = /** @class */ (function () {
     RegistroPage.prototype.submitRegister = function () {
         var _this = this;
         this.authService.register(this.email, this.password).then(function (res) {
-            alert('Please validate your email address. Kindly check your inbox.');
-            _this.router.navigate(['/ingresar']);
+            alert('Por favor valide su correo electrónico. Revise su bandeja de entrada.');
+            _this.router.navigate(['']);
         }).catch(function (err) { return alert('No se pudo crear el usuario.' + err); });
     };
     RegistroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

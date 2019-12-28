@@ -58,7 +58,7 @@ var IngresarPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content center padding class=\"bg-image\" fullscreen=\"true\">\n\n  <ion-img src=\"assets/images/logo-dpromocr.png\"></ion-img>\n  <div text-center>\n    <h2>Ingresar</h2>\n    <h4>Bienvenido de nuevo, por favor ingrese para continuar</h4>\n  </div>\n\n  <ion-item>\n\n    <ion-label position=\"floating\">Email</ion-label>\n    <ion-input [(ngModel)]=\"email\" type=\"email\" name=\"email\"></ion-input>\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label position=\"floating\">Password</ion-label>\n    <ion-input [(ngModel)]=\"password\" type=\"password\" name=\"password\"></ion-input>\n  </ion-item>\n\n  <ion-button (click)=\"OnSubmitLogin()\" expand=\"block\" class=\"ion-margin-top\" padding>Ingresar</ion-button>\n\n</ion-content>\n\n<ion-footer padding text-center>\n  <a class=\"link\" routerLink=\"/registro\">Registrar una nueva cuenta nueva</a>\n</ion-footer>"
+module.exports = "<ion-content center padding class=\"bg-image\" fullscreen=\"true\">\n\n    <ion-img src=\"assets/images/logo-dpromocr.png\"></ion-img>\n    <div text-center>\n        <h2>Ingresar</h2>\n        <h4>Bienvenido de nuevo, por favor ingrese para continuar</h4>\n    </div>\n\n    <ion-item>\n\n        <ion-label position=\"floating\">Email</ion-label>\n        <ion-input [(ngModel)]=\"email\" type=\"email\" name=\"email\"></ion-input>\n    </ion-item>\n\n    <ion-item>\n\n        <ion-label position=\"floating\">Password</ion-label>\n        <ion-input [(ngModel)]=\"password\" type=\"password\" name=\"password\"></ion-input>\n    </ion-item>\n\n    <ion-button (click)=\"OnSubmitLogin()\" expand=\"block\" class=\"ion-margin-top\" padding>Ingresar</ion-button>\n    <div padding text-center>\n        <a class=\"link\" (click)=\"onChangePassword()\">Olvidó su contraseña?</a>\n    </div>\n</ion-content>\n\n<ion-footer padding text-center>\n    <a class=\"link\" routerLink=\"/registro\">Registrar una nueva cuenta nueva</a>\n</ion-footer>"
 
 /***/ }),
 
@@ -87,22 +87,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../servicios/auth.service */ "./src/app/servicios/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
 
 
 
 
 var IngresarPage = /** @class */ (function () {
-    function IngresarPage(authService, router) {
+    function IngresarPage(authService, router, storage) {
+        var _this = this;
         this.authService = authService;
         this.router = router;
+        this.storage = storage;
+        this.storage.get("dpromocr").then(function (val) {
+            if (val != undefined && val != null) {
+                authService.authUser = JSON.parse(val);
+                authService.getUserInDB();
+                _this.router.navigate(['tab']);
+            }
+        });
     }
     IngresarPage.prototype.ngOnInit = function () {
     };
     IngresarPage.prototype.OnSubmitLogin = function () {
         var _this = this;
+        //https://stackoverflow.com/questions/47751377/firebase-prevent-same-account-on-multiple-devices
+        //alert("Sesión iniciada. Desea cerrar la sesión para ingresar de otro dispositivo?");
+        //}else{
         this.authService.login(this.email, this.password).then(function (res) {
-            _this.router.navigate(['']);
+            _this.password = "";
+            _this.storage.set("dpromocr", JSON.stringify(_this.authService.authUser));
+            _this.router.navigate(['tab']);
         }).catch(function (err) { return alert('los datos son incorrectos o no existe el usuario'); });
+        //}
+    };
+    IngresarPage.prototype.onChangePassword = function () {
+        if (this.email !== undefined && this.email !== "") {
+            this.authService.changePassword(this.email).then(function (res) {
+                alert('Se ha enviado el correo para cambiar la contraseña');
+            }).catch(function (err) { return alert('Los datos son incorrectos o no existe el usuario'); });
+        }
+        else {
+            alert('Ingrese el correo electrónico de su cuenta');
+        }
     };
     IngresarPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -110,7 +137,7 @@ var IngresarPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./ingresar.page.html */ "./src/app/ingresar/ingresar.page.html"),
             styles: [__webpack_require__(/*! ./ingresar.page.scss */ "./src/app/ingresar/ingresar.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_storage__WEBPACK_IMPORTED_MODULE_4__["Storage"]])
     ], IngresarPage);
     return IngresarPage;
 }());

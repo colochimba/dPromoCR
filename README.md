@@ -113,7 +113,6 @@ next
 
 Urgente
 -Integrate with Paypal...crear la opción de usar gratuitamente
--Avatar con la foto del usuario
 -Pagina de configuracion de app...
 -Politicas de privacidad
 -Ayuda
